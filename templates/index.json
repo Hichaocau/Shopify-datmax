@@ -1,54 +1,5 @@
 {
   "sections": {
-    "165655556677a62d19": {
-      "type": "support",
-      "blocks": {
-        "165655556698809eee-0": {
-          "type": "column",
-          "settings": {
-            "info": "24\/7 Support",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
-            "option": "car"
-          }
-        },
-        "165655556698809eee-1": {
-          "type": "column",
-          "settings": {
-            "info": "24\/7 Support",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
-            "option": "cashback"
-          }
-        },
-        "165655556698809eee-2": {
-          "type": "column",
-          "settings": {
-            "info": "24\/7 Support",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
-            "option": "quality"
-          }
-        },
-        "165655556698809eee-3": {
-          "type": "column",
-          "settings": {
-            "info": "24\/7 Support",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
-            "option": "support"
-          }
-        }
-      },
-      "block_order": [
-        "165655556698809eee-0",
-        "165655556698809eee-1",
-        "165655556698809eee-2",
-        "165655556698809eee-3"
-      ],
-      "settings": {
-        "heading": "What Shopex Offer!",
-        "bgc": "Bgc1",
-        "view_more": false,
-        "btn_text": "view collection"
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -78,7 +29,6 @@
     }
   },
   "order": [
-    "165655556677a62d19",
     "featured_collection"
   ]
 }

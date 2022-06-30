@@ -1,0 +1,126 @@
+<style>
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.header-blum__container{
+  font-family: Lato;
+  margin-top: 50px;
+  justify-content: space-between;
+  padding: 24px 0;
+  background: #ccc;
+}
+.header-blum__logo--link{
+  font-weight: 700;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--navbar-color);
+}
+.header-blum__item{
+  padding: 0 15px;
+}
+.pstn-tlte{
+  position: relative;
+}
+.header-blum__item--active p{
+  margin-top: 50px;
+}
+.nav-blum__dropdown{
+  position: absolute;
+  top: 200%;
+  padding: 24px 0;
+  background: #fff;
+  box-shadow: 0px 12px 24px -8px rgb(9 12 38 / 24%);
+  border-radius: 5px;
+  width: 100%;
+  min-width: 160px;
+  z-index: 1;
+
+}
+.nav-blum__dropdown--link{
+  padding: 11px 20px;
+  display: block;
+}
+.subnav-blum{
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.nav-blum__dropdown--active:hover ~ .subnav-blum{
+  opacity: 1;
+}
+.subnav-blum{
+  position: absolute;
+  background: #fff;
+  left: 148px;
+  top: 28%;
+  z-index: 1;
+  min-width: 240px;
+  padding: 15px 30px;
+  box-shadow: 0px 12px 24px -8px rgb(9 12 38 / 24%);
+  border-radius: 5px;
+}
+.subnav-blum__dropdown--link{
+  padding: 12px 0;
+  display: block;
+}
+
+</style>
+<div class="header__wrap1">
+  <div class="header-blum__container container__large df">
+    <div class="header-blum__logo">
+      <a href="#" class="header-blum__logo--link">BLUM</a>
+    </div>
+    <ul class="header-blum__list df">
+      <li class="header-blum__item">
+        <a href="#" class="header-blum__item--link">All Product</a>
+      </li>
+      <details class="header-blum__item pstn-tlte header-blum__item--active">
+        <summary class="header-blum__item--link">
+          <span class="header-blum__title">Women</span>
+        </summary>
+        <ul class="nav-blum__dropdown">
+          <li>
+            <a href="#" class="nav-blum__dropdown--link">Tops</a>
+          </li>
+          <li>
+            <a href="#" class="nav-blum__dropdown--link">Bottoms</a>
+          </li>
+          <li class="pstn-tlte nav-blum__wrap">
+            <a href="#" class="nav-blum__dropdown--link nav-blum__dropdown--active">Accessories</a>
+            <ul class="subnav-blum">
+              <li>
+                <a href="#" class="subnav-blum__dropdown--link">Gym & Swimming</a>
+              </li>
+              <li>
+                <a href="#" class="subnav-blum__dropdown--link">Trekking & Running</a>
+              </li>
+              <li>
+                <a href="#" class="subnav-blum__dropdown--link">Bikecycling</a>
+              </li>
+              <li>
+                <a href="#" class="subnav-blum__dropdown--link">Others</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </details>
+      <li class="header-blum__item">
+        <a href="#" class="header-blum__item--link">Our story</a>
+      </li>
+      <li class="header-blum__item">
+        <a href="#" class="header-blum__item--link">Lookbook</a>
+      </li>
+      <li class="header-blum__item">
+        <a href="#" class="header-blum__item--link">About</a>
+      </li>
+    </ul>
+    <div class="header-blum__icon">3 cai icon</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "presets": [
+    {
+      "name": "Header Blum"
+    }
+  ]
+}
+{% endschema %}
