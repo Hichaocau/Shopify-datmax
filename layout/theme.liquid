@@ -46,6 +46,7 @@
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
       :root {
+        --bgc-change: {{ settings.cbgc }};
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
@@ -192,9 +193,14 @@
           font-size: 1.6rem;
         }
       }
+
+      
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'base-hekto.css' | asset_url | stylesheet_tag }}
+    {{ 'grid-hekto.css' | asset_url | stylesheet_tag }}
+    {{ 'style-hekto.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -214,7 +220,13 @@
     </script>
   </head>
 
-  <body class="gradient">
+  <style>
+    .bgc{
+      background-color: rgb(var(--bgc-change)) !important;
+    }
+  </style>
+
+  <body class="gradient bgc">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -224,7 +236,8 @@
     {%- endif -%}
 
     {% section 'announcement-bar' %}
-    {% section 'header' %}
+    {% section 'header-hekto' %}
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>

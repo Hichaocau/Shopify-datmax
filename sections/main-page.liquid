@@ -4,6 +4,7 @@
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -16,6 +17,11 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .bgcHeader{
+    background-color: {{ section.settings.color }}!important;
+  }
+
 {%- endstyle -%}
 
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
@@ -56,6 +62,11 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Background header"
     }
   ]
 }

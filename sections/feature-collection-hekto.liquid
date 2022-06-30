@@ -1,0 +1,91 @@
+
+<div class="category featured">
+  <div class="category-wrap grid wide1 container__large ">
+    <h2 class="heading category-heading featured-heading color-text-primary">{{ section.settings.heading }}</h2> 
+    <div class="row featured-row">
+      {%- if section.settings.collection.products == blank -%}
+       {%- for i in (1..4) -%}
+       
+       {%- endfor -%}
+
+      {%- elsif section.settings.collection.products != blank -%}         
+        {%- for product in section.settings.collection.products -%} 
+          {%- liquid
+            if section.settings.collums_product == 1
+              assign collumns_product = 'l-12'
+            elsif section.settings.collums_product == 2
+              assign collumns_product = 'l-6'
+            elsif section.settings.collums_product == 3
+              assign collumns_product = 'l-4'
+            elsif section.settings.collums_product == 4
+              assign collumns_product = 'l-3'
+            endif
+          -%}
+          <div class="col {{ collumns_product }} m-3 c-12">
+           
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+        {% render block %}
+      {% endcase -%}
+    {% endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name" : "FEATURED HEKTO",
+  "settings": [
+    { 
+      "type": "text",
+      "label": "Heading",
+      "id": "heading",
+      "default" : "FEATURED PRODUCT"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "header",
+      "content": "Product"
+    },
+    {
+      "type": "range",
+      "label": "Number of collums product on desktop",
+      "id": "collums_product",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "checkbox_show_image",
+      "label": "Show second image on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vender",
+      "label": "Show vendor",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets":[
+    {
+      "name" : "Featured product hekto"    
+    }
+  ]
+}
+{% endschema %}

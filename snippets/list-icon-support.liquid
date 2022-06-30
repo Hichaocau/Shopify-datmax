@@ -1,0 +1,12 @@
+{% liquid
+  case options-icon
+    when 'car'
+      render 'icon-car'
+    when 'cashback'
+      render 'icon-cashback'
+    when 'support'
+      render 'icon-support'
+    else
+      render 'icon-quality'
+  endcase
+%}

@@ -1,0 +1,134 @@
+<div class="support__wrap">
+  <div class="support container__large">
+    <h3 class="support__heading {% if section.settings.heading == blank %} none {% endif %}">
+      {{ section.settings.heading }}
+    </h3>
+    <span>hello</span>
+    <div class="support__list grid__hekto">
+      <div class="row">
+        {% for block in section.blocks %}
+          {%- liquid
+            if section.blocks.size == 4
+              assign footer_grid_class = 'l-3'
+            elsif section.blocks.size == 3
+              assign footer_grid_class = 'l-4'
+            elsif section.blocks.size == 2
+              assign footer_grid_class = 'l-6'
+            elsif section.blocks.size == 1
+              assign footer_grid_class = 'l-12'
+            endif
+          -%}
+          <div class="col m-3 c-6 {{ footer_grid_class }}">
+            <div class="support__item">
+              {% render 'list-icon-support', options-icon: block.settings.option %}
+              <h5 class="support__item--heading">{{ block.settings.info }}</h5>
+              <p class="support__item--des fsm fwbl">{{ block.settings.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Shopex Offer!"
+    },
+    {
+      "type": "select",
+      "id": "bgc",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "Bgc1",
+          "label": "Background color 1"
+        },
+        {
+          "value": "Bgc2",
+          "label": "Background color 2"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "view_more",
+      "label": "Enable “View more” button",
+      "info": "Appears if collection has more products than shown."
+    },
+    {
+      "type": "text",
+      "label": "Button text",
+      "id": "btn_text",
+      "default": "view collection"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "info",
+          "label": "Info",
+          "default": "24/7 Support"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+        },
+        {
+          "type": "select",
+          "id": "option",
+          "label": "Option Icon",
+          "options": [
+            {
+              "label": "Car",
+              "value": "car"
+            },
+            {
+              "label": "Cashback",
+              "value": "cashback"
+            },
+            {
+              "label": "Quality",
+              "value": "quality"
+            },
+            {
+              "label": "Support",
+              "value": "support"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name": "Support",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
